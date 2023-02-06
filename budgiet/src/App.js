@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import TransactionInput from './components/TransactionInput';
 import { Routes, Route, Link } from 'react-router-dom'
 
