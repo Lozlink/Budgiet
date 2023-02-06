@@ -1,5 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
+import TransactionInput from './components/TransactionInput';
 
 function App() {
   return (
@@ -15,6 +15,9 @@ function App() {
             <ul>Log in</ul>
           </div>
         </div>
+      <div className="input">
+        <TransactionInput />
+      </div>
     </div>
   );
 }
