@@ -1,0 +1,2 @@
+1. Create the basic layout. Can probably do this within the App component to start with.
+2. 
