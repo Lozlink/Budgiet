@@ -4,12 +4,13 @@ import axios  from "axios";
 const TransactionInput = () => {
   const [description, setDescription] = useState('');
   const [amount, setAmount] = useState(0)
-  const [transactionType, setTransactionType] = useState('deposit');
+  const [transactionType, setTransactionType] = useState('income');
   const [category, setCategory] = useState('')
+  const [otherCategory, setOtherCategory] = useState("");
+
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
     try {
       const response = await axios.post('/api/transactions', {
         description,
@@ -26,6 +27,7 @@ const TransactionInput = () => {
     setAmount('')
     setTransactionType('deposit')
     setCategory('')
+    setOtherCategory("");
   }
 
   return (
@@ -37,7 +39,7 @@ const TransactionInput = () => {
         id="description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        placeholder='Add a description for your deposit/Withdrawal'
+        placeholder='Add a description for your Income or Expense'
         />
       </div>
       <div>
@@ -56,23 +58,38 @@ const TransactionInput = () => {
           value={transactionType}
           onChange={(e) => setTransactionType(e.target.value)}
         >
-          <option value="deposit">Deposit</option>
-          <option value="withdrawal">Withdrawal</option>
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
         </select>
       </div>
-      <div>
+      <div style={{display: transactionType === 'expense' ? 'block' : 'none'}}>
         <label htmlFor="category">Category:</label>
         <select
           id="category"
           value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          onChange={(e) => {
+          setCategory(e.target.value)
+          setOtherCategory(e.target.value === 'other')
+        }}   
         >
           <option value="groceries">Groceries</option>
           <option value="entertainment">Entertainment</option>
           <option value="transportation">Transportation</option>
           <option value='household'>Household Expenses</option>
+          <option value='other'>Other</option>
         </select>
       </div>
+      {category === 'other' && (
+        <div>
+          <label htmlFor="otherCategory">Other Category:</label>
+          <input
+            type="text"
+            id="otherCategory"
+            onChange={(e) => setOtherCategory(e.target.value)}
+            placeholder="Enter a category"
+          />
+          </div>
+      )}
       <button type="submit">Add Transaction</button>
     </form>
   )
