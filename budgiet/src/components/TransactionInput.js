@@ -1,16 +1,29 @@
 import { useState } from "react";
 import axios  from "axios";
+import Description from "./Transactional/Descrption";
+import { connect } from 'react-redux'
+import {
+  setTransactionDescription,
+  setTransactionAmount,
+  setTransactionType,
+  setTransactionCategory
+} from './actions/transactions';
 
-const TransactionInput = () => {
-  const [description, setDescription] = useState('');
-  const [amount, setAmount] = useState(0)
-  const [transactionType, setTransactionType] = useState('income');
-  const [category, setCategory] = useState('')
-  const [otherCategory, setOtherCategory] = useState("");
 
+const TransactionInput = ({
+  setTransactionDescription,
+  setTransactionAmount,
+  setTransactionType,
+  setTransactionCategory
+  }) => {
+    const [description, setDescription] = useState('');
+  const [amount, setAmount] = useState(0);
+  const [transactionType, setTransactionTypeValue] = useState('deposit');
+  const [category, setCategory] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    
     try {
       const response = await axios.post('/api/transactions', {
         description,
@@ -23,21 +36,20 @@ const TransactionInput = () => {
       console.error(error.response.data)
     }
 
-    setDescription('')
-    setAmount('')
+    setTransactionDescription('')
+    setTransactionAmount(0)
     setTransactionType('deposit')
-    setCategory('')
-    setOtherCategory("");
+    setTransactionCategory('')
   }
-
+  
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+       <div>
         <label htmlFor="description">Description: </label>
         <input 
         type="text"
         id="description"
-        value={description}
+        value={description || ""}
         onChange={(e) => setDescription(e.target.value)}
         placeholder='Add a description for your Income or Expense'
         />
@@ -56,7 +68,7 @@ const TransactionInput = () => {
         <select
           id="transactionType"
           value={transactionType}
-          onChange={(e) => setTransactionType(e.target.value)}
+          onChange={(e) => setTransactionTypeValue(e.target.value)}
         >
           <option value="income">Income</option>
           <option value="expense">Expense</option>
@@ -69,7 +81,6 @@ const TransactionInput = () => {
           value={category}
           onChange={(e) => {
           setCategory(e.target.value)
-          setOtherCategory(e.target.value === 'other')
         }}   
         >
           <option value="groceries">Groceries</option>
@@ -79,21 +90,14 @@ const TransactionInput = () => {
           <option value='other'>Other</option>
         </select>
       </div>
-      {category === 'other' && (
-        <div>
-          <label htmlFor="otherCategory">Other Category:</label>
-          <input
-            type="text"
-            id="otherCategory"
-            onChange={(e) => setOtherCategory(e.target.value)}
-            placeholder="Enter a category"
-          />
-          </div>
-      )}
+      
       <button type="submit">Add Transaction</button>
     </form>
   )
+  
 }
+
+
 
 export default TransactionInput
 
