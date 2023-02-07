@@ -20,6 +20,7 @@ const TransactionInput = ({
   const [amount, setAmount] = useState(0);
   const [transactionType, setTransactionTypeValue] = useState('deposit');
   const [category, setCategory] = useState('');
+  const [otherCategory, setOtherCategory] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -36,10 +37,10 @@ const TransactionInput = ({
       console.error(error.response.data)
     }
 
-    setTransactionDescription('')
-    setTransactionAmount(0)
-    setTransactionType('deposit')
-    setTransactionCategory('')
+    setDescription('')
+    setAmount(0)
+    setTransactionTypeValue('deposit')
+    setCategory('')
   }
   
   return (
@@ -81,6 +82,7 @@ const TransactionInput = ({
           value={category}
           onChange={(e) => {
           setCategory(e.target.value)
+          setOtherCategory(e.target.value === 'other')
         }}   
         >
           <option value="groceries">Groceries</option>
@@ -90,7 +92,17 @@ const TransactionInput = ({
           <option value='other'>Other</option>
         </select>
       </div>
-      
+      {category === 'other' && (
+        <div>
+          <label htmlFor="otherCategory">Other Category:</label>
+          <input
+            type="text"
+            id="otherCategory"
+            onChange={(e) => setOtherCategory(e.target.value)}
+            placeholder="Enter a category"
+          />
+          </div>
+      )}
       <button type="submit">Add Transaction</button>
     </form>
   )

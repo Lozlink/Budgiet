@@ -4,21 +4,27 @@ import axios from 'axios';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+  const [user, setUser] = useState()
+  const [error, setError] = useState()
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post("/api/sessions", {
         email,
-        password,
+        password
       });
-      console.log(response);
+      setUser(response.data);
+      localStorage.setItem('user', response.data)
     } catch (error) {
       console.error(error.response.data);
     }
   };
 
+  if (user) {
+    return <div> {user.name} is logged in</div>
+  }
   return (
     <form onSubmit={handleSubmit}>
       <div>

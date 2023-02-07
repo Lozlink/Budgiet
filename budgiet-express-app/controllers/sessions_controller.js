@@ -7,8 +7,9 @@ const User = require('../models/user');
 
 // Log the user in if the password matches the password digest
 router.post('/', (req, res) => {
+  console.log('i love you')
     const { email, password } = req.body;
-
+    
     User
         .findByEmail(email)
         .then(user => {
@@ -41,6 +42,7 @@ router.get('/', (req, res) => {
 
 // Log the user out by deleting the session
 router.delete('/', (req, res) => {
+  console.log('you logged out')
     req.session.userId = null;
     res.json({ message: 'User successfully logged out.' });
 });

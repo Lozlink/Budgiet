@@ -4,9 +4,11 @@ import Header from './components/Header/Header';
 import Login from './components/User Controls/Login';
 import SignUp from './components/User Controls/SignUp';
 import { Routes, Route, Link } from 'react-router-dom'
+import Logout from './components/User Controls/Logout';
 
 
-function App() {
+const App = () =>  {
+
   return (
     <div className="Budgie">
         <Header />
@@ -14,6 +16,7 @@ function App() {
             <Route path='/transaction' element={<TransactionInput />}/>
             <Route path='/signup' element={<SignUp/>}/>
             <Route path='/login' element={<Login/>}/>
+            <Route path='/logout' element={<Logout />}/>
           </Routes>
         
    </div>

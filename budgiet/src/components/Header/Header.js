@@ -8,12 +8,13 @@ let Header = () => {
       </div>
       <div className="titslo">
         <h1 className="Title">Budgiet</h1>
-        <h2 className='slogan'>Don't get your money fly away</h2>
+        <h2 className='slogan'>Don't let your money fly away</h2>
       </div> 
       <div className="nav">
         <Link to='/signup'>Sign up!</Link>
         <Link to='/login'>Log in!</Link>
         <Link to='/transaction'>Transaction</Link>
+        <Link to='/logout'>Log out</Link>
       </div>
   </div></>
   )

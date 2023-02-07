@@ -1,14 +1,14 @@
 const db = require('../db/db')
 
 const User = {
-  create: (name, email, password_digest) => {
+  create: (name, email, password) => {
     const sql = `
         INSERT INTO users(name, email, password)
         VALUES($1, $2, $3)
         RETURNING *
     `;
     return db
-      .query(sql, [name, email, password_digest])
+      .query(sql, [name, email, password])
   },
 
   findByEmail: email => {
