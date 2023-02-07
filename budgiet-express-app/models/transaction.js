@@ -1,13 +1,13 @@
 const db = require('../db/db')
 
 const Transaction = {
-  create: (user_id, type, amount, description, timestamp) => {
+  create: (user_id, type, amount, description, timestamp, category) => {
     const sql = `
-        INSERT INTO transactions(user_id, type, amount, description, timestamp)
-        VALUES($1, $2, $3, $4, $5)
+        INSERT INTO transactions(user_id, type, amount, description, created_on, category)
+        VALUES($1, $2, $3, $4, $5, $6)
         RETURNING *
     `;
-    return db.query(sql, [user_id, type, amount, description, timestamp])
+    return db.query(sql, [user_id, type, amount, description, timestamp, category])
   },
 
   getAll: user_id => {

@@ -9,12 +9,13 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/login', { email, password });
-      // Handle successful login
-      setEmail('');
-      setPassword('');
-    } catch (err) {
-      setError('Incorrect email or password');
+      const response = await axios.post("/api/sessions", {
+        email,
+        password,
+      });
+      console.log(response);
+    } catch (error) {
+      console.error(error.response.data);
     }
   };
 
