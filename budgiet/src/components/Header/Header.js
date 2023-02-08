@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import './header.scss'
-let Header = () => {
+let Header = ({ loggedInUser }) => {
   return (
     <><div className="header">
       <div className="logo">
@@ -11,10 +11,18 @@ let Header = () => {
         <h2 className='slogan'>Don't let your money fly away</h2>
       </div> 
       <div className="nav">
-        <Link to='/signup'>Sign up!</Link>
-        <Link to='/login'>Log in!</Link>
-        <Link to='/transaction'>Transaction</Link>
-        <Link to='/logout'>Log out</Link>
+      {!loggedInUser && (
+          <>
+            <Link to='/signup'>Sign up!</Link>
+            <Link to='/login'>Log in!</Link>
+          </>
+        )}
+        {loggedInUser && (
+          <>
+            <Link to='/transaction'>Transaction</Link>
+            <Link to='/logout'>Log out</Link>
+          </>
+        )}
       </div>
   </div></>
   )

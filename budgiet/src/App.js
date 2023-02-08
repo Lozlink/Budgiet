@@ -59,7 +59,7 @@ const App = () =>  {
   }
   return (
     <div className="Budgie">
-        <Header />
+        <Header loggedInUser={loggedInUser}/>
           <Routes>
             <Route path='/transaction' element={<TransactionInput loggedInUser={loggedInUser}/>}/>
             <Route path='/signup' element={<SignUp/>}/>
