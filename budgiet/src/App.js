@@ -9,7 +9,7 @@ import Logout from './components/User Controls/Logout';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
-
+import TransactionHistory from './components/account/transactionHistory';
 
 
 const App = () =>  {
@@ -68,6 +68,7 @@ const App = () =>  {
             <Route path='/login' element={<Login renderLogIn={renderLogIn}/>}/>
             <Route path='/logout' element={<Logout loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>
             <Route path='/balance' element={<Balance loggedInUser={loggedInUser}/>}/>
+            <Route path='/transactionhistory' element={<TransactionHistory loggedInUser={loggedInUser}/>}/>
           </Routes>
         
    </div>

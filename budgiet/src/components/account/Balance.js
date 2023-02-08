@@ -4,7 +4,7 @@ import axios from 'axios';
 const Balance = ({ loggedInUser }) => {
   const [balance, setBalance] = useState(0);
   
-  const fetchTransactions = async (loggedInUser) => {
+  const fetchTransactionBalance = async (loggedInUser) => {
     const response = await axios.get(`/api/transactions/${loggedInUser.id}`, {
     params: {
       user_id: loggedInUser.id
@@ -25,7 +25,7 @@ const Balance = ({ loggedInUser }) => {
 
   useEffect(() => {
     if (loggedInUser) {
-      fetchTransactions(loggedInUser);
+      fetchTransactionBalance(loggedInUser);
     }
   }, [loggedInUser]);
 

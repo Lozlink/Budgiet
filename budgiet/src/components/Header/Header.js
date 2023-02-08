@@ -19,9 +19,11 @@ let Header = ({ loggedInUser }) => {
         )}
         {loggedInUser && (
           <>
-            <Link to='/transaction'>Transaction</Link>
-            <Link to='/logout'>Log out</Link>
+            <Link to='/transaction'>New Transaction</Link>
+            <Link to='/transactionhistory'>Transaction History</Link>
             <Link to='/balance'>Balance</Link>
+            <Link to='/logout'>Log out</Link>
+            
           </>
         )}
       </div>
