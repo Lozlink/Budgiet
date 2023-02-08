@@ -13,6 +13,10 @@ router.get("/:id", (req, res) => {
 
 router.post('/', (req, res) => {
   const {user_id, type, amount, description, timestamp, category} = req.body
+
+  // UserID is currently undefined
+  // console.log(user_id)
+  // console.log('meow')
   Transactions
     .create(user_id, type, amount, description, timestamp, category)
     .then(transaction => res.json({transaction: transaction.rows[0]}))

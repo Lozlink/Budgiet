@@ -13,6 +13,7 @@ router.post('/', (req, res) => {
     User
         .findByEmail(email)
         .then(user => {
+          console.log(user)
             if (email === '' || password === '') {
                 res.status(400).json({ error: 'Email and/or password cannot be blank.'});
             } else {

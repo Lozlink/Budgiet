@@ -1,39 +1,33 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [user, setUser] = useState()
-  const [error, setError] = useState()
-  
+const Login = ({ renderLogIn }) => {
+ 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post("/api/sessions", {
+  //       email,
+  //       password
+  //     });
+  //     const user_id = response.data.id
+  //     console.log(user_id)
+  //     setUser(response.data)
+  //     localStorage.setItem('user', response.data)
+      
+  //   } catch (error) {
+  //     console.error(error.response.data);
+  //   }
+  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post("/api/sessions", {
-        email,
-        password
-      });
-      setUser(response.data);
-      localStorage.setItem('user', response.data)
-    } catch (error) {
-      console.error(error.response.data);
-    }
-  };
-
-  if (user) {
-    return <div> {user.name} is logged in</div>
-  }
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={renderLogIn}>
       <div>
         <label htmlFor="email">Email:</label>
         <input
           type="email"
           id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          name="email"
         />
       </div>
       <div>
@@ -41,11 +35,9 @@ const Login = () => {
         <input
           type="password"
           id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}z
+          name="password"
         />
       </div>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
       <button type="submit">Login</button>
     </form>
   );

@@ -5,18 +5,66 @@ import Login from './components/User Controls/Login';
 import SignUp from './components/User Controls/SignUp';
 import { Routes, Route, Link } from 'react-router-dom'
 import Logout from './components/User Controls/Logout';
+import { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
 
 const App = () =>  {
+  const navigate = useNavigate()
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const  [user, setUser] = useState()
+  // const [error, setError] = useState()
 
+  // const renderLogIn = async (event) => {
+  //     event.preventDefault();
+  //     try {
+  //       const response = await axios.post("/api/sessions", {
+  //         email: email
+  //         password: password
+  //       });
+  //       console.log(response.data)
+  //       setUser(response.data)
+  //       localStorage.setItem('user', response.data)
+        
+  //     } catch (error) {
+  //       console.error(error.response.data);
+  //     }
+  //   };
+
+  const [loggedInUser, setLoggedInUser] = useState(null)
+
+  const renderLogIn = (event) => {
+    event.preventDefault()
+    const form = event.target
+    const data = Object.fromEntries(new FormData(form))
+
+    fetch('/api/sessions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.error) {
+          document.querySelector('.error-message').textContent = 'Please enter a password or email.'
+        } else {
+          setLoggedInUser(res)
+          console.log(res)
+          navigate('/transaction')
+        
+        }
+      })
+  }
   return (
     <div className="Budgie">
         <Header />
           <Routes>
-            <Route path='/transaction' element={<TransactionInput />}/>
+            <Route path='/transaction' element={<TransactionInput loggedInUser={loggedInUser}/>}/>
             <Route path='/signup' element={<SignUp/>}/>
-            <Route path='/login' element={<Login/>}/>
-            <Route path='/logout' element={<Logout />}/>
+            <Route path='/login' element={<Login renderLogIn={renderLogIn}/>}/>
+            <Route path='/logout' element={<Logout loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>
           </Routes>
         
    </div>

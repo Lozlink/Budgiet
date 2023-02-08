@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios  from "axios";
-import Description from "./Transactional/Descrption";
 import { connect } from 'react-redux'
 import {
   setTransactionDescription,
@@ -9,29 +8,28 @@ import {
   setTransactionCategory
 } from './actions/transactions';
 
-
-const TransactionInput = ({
-  setTransactionDescription,
-  setTransactionAmount,
-  setTransactionType,
-  setTransactionCategory
-  }) => {
+const TransactionInput = ({loggedInUser}) => {
     const [description, setDescription] = useState('');
   const [amount, setAmount] = useState(0);
   const [transactionType, setTransactionTypeValue] = useState('deposit');
   const [category, setCategory] = useState('');
   const [otherCategory, setOtherCategory] = useState("");
 
+
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
     try {
-      const response = await axios.post('/api/transactions', {
+      const data = {
         description,
         amount,
         type: transactionType,
-        category
-      }) 
+        category,
+      }
+      if (loggedInUser) {
+        data.user_id = loggedInUser.id
+      }
+      const response = await axios.post('/api/transactions', data)
+        
       console.log(response.data)
     } catch (error) {
       console.error(error.response.data)
