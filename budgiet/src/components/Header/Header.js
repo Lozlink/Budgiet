@@ -21,6 +21,7 @@ let Header = ({ loggedInUser }) => {
           <>
             <Link to='/transaction'>Transaction</Link>
             <Link to='/logout'>Log out</Link>
+            <Link to='/balance'>Balance</Link>
           </>
         )}
       </div>

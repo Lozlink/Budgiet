@@ -1,13 +1,15 @@
 import './App.scss';
-import TransactionInput from './components/TransactionInput';
+import TransactionInput from './components/Transactional/TransactionInput';
 import Header from './components/Header/Header';
 import Login from './components/User Controls/Login';
 import SignUp from './components/User Controls/SignUp';
+import Balance from './components/account/Balance';
 import { Routes, Route, Link } from 'react-router-dom'
 import Logout from './components/User Controls/Logout';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
+
 
 
 const App = () =>  {
@@ -65,6 +67,7 @@ const App = () =>  {
             <Route path='/signup' element={<SignUp/>}/>
             <Route path='/login' element={<Login renderLogIn={renderLogIn}/>}/>
             <Route path='/logout' element={<Logout loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>
+            <Route path='/balance' element={<Balance loggedInUser={loggedInUser}/>}/>
           </Routes>
         
    </div>

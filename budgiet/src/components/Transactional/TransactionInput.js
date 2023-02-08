@@ -6,7 +6,7 @@ import {
   setTransactionAmount,
   setTransactionType,
   setTransactionCategory
-} from './actions/transactions';
+} from '../actions/transactions';
 
 const TransactionInput = ({loggedInUser}) => {
     const [description, setDescription] = useState('');
