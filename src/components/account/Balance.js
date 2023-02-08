@@ -13,7 +13,7 @@ const Balance = ({ loggedInUser }) => {
     const transactions = response.data;
     console.log(transactions)
     let total = 0;
-    Object.values(transactions)[3].forEach(transaction => {
+    Object.values(transactions).forEach(transaction => {
       if (transaction.type === 'deposit') {
         total += transaction.amount;
       } else {
