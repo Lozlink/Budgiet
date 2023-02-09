@@ -36,13 +36,13 @@ I knew from the get go, that I was going to implement React as my front-end to g
 Upon starting to develop the project, I was able to understand the difficulty of the task and it provided me with insight in terms of the importance of being able to understand the code's journey to even get a single desired output. I learned new concepts, attempted to implement new technology(albeit unsuccesfully for redux) and ultimately felt like it pushed my knowledge. 
 
 ### Planning:
-![Wireframing](https://i.imgur.com/90enYEDs.jpg)
+![Wireframing](https://i.imgur.com/90enYED.jpg)
 
-![Logo](https://i.imgur.com/bHwvCnxs.png)
+![Logo](https://i.imgur.com/bHwvCnx.png)
 
-![Board](https://i.imgur.com/LWX3VOos.png)
+![Board](https://i.imgur.com/LWX3VOo.png)
 
-![Final App as of 10/02/23](https://i.imgur.com/30fxQgys.png)
+![Final App as of 10/02/23](https://i.imgur.com/30fxQgy.png)
 
 
 ## Installation Instructions:
