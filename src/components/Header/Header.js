@@ -13,7 +13,7 @@ let Header = ({ loggedInUser }) => {
         <h1 className="Title">Budgiet</h1>
         <h2 className='slogan'>Don't let your money fly away</h2>
 
-        <h2>UNDER CONSTRUCTION</h2>
+        <h2>UNDER CONSTRUCTION</h2> 
       </div> 
       <div className="nav">
       {!loggedInUser && (
