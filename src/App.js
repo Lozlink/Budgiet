@@ -10,6 +10,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import TransactionHistory from './components/account/transactionHistory';
+import HomePage from './components/home/Home';
 
 
 const App = () =>  {
@@ -54,7 +55,7 @@ const App = () =>  {
         } else {
           setLoggedInUser(res)
           console.log(res)
-          navigate('/transaction')
+          navigate('/')
         
         }
       })
@@ -63,6 +64,7 @@ const App = () =>  {
     <div className="Budgie">
         <Header loggedInUser={loggedInUser}/>
           <Routes>
+            <Route path='/' element={<HomePage loggedInUser={loggedInUser}/>}/>
             <Route path='/transaction' element={<TransactionInput loggedInUser={loggedInUser}/>}/>
             <Route path='/signup' element={<SignUp/>}/>
             <Route path='/login' element={<Login renderLogIn={renderLogIn}/>}/>

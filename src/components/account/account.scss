@@ -5,3 +5,69 @@ table, th, td {
 th, td {
   padding: 5px;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid lightgray;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: lightgray;
+}
+
+.transaction-history {
+  margin: 20px;
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: skyblue;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      background-color: #ffeb3b;
+    }
+  }
+}
+
+.balance-box {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+
+.balance-content {
+  margin-top: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+td {
+  background-color: #ddf2fa;
+}
+
+.redirect {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  color: skyblue
+}
+
+.link-balance {
+  text-align: center;
+}

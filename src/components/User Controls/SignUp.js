@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './user.scss'
 
 const SignUp = () => {
   const [name, setName] = useState('');
@@ -22,7 +23,7 @@ const SignUp = () => {
   
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='signup-form'>
       <div>
         <label htmlFor="name">Name: </label>
         <input

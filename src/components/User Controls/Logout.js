@@ -28,7 +28,7 @@ const Logout = ({ loggedInUser, setLoggedInUser }) => {
   //   return <div>Not logged in</div>;
   // }
   return (
-    <div>
+    <div className='logout'>
       {loggedInUser ? ( <p> Are you sure you want to Log out, {loggedInUser.name}?</p>) : null}
        {loggedInUser && (
          <button onClick={handleLogout}>Logout</button>

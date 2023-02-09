@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './account.scss'
+import { Link } from 'react-router-dom'
 
 const Balance = ({ loggedInUser }) => {
   const [balance, setBalance] = useState(0);
@@ -30,9 +32,14 @@ const Balance = ({ loggedInUser }) => {
   }, [loggedInUser]);
 
   return (
-    <div className="balance">
-      {loggedInUser ? <p>Your balance is: ${balance}</p> : <p>Please log in to see your balance</p>}
-    </div>
+    <><div className="balance-box">
+      <h2>Balance</h2>
+      <div className="balance-content">
+        {loggedInUser ? <p>${balance}</p> : <p>Please log in to see your balance</p>}
+      </div>
+    </div><div className="redirect">
+        <Link to='/transactionhistory'>Click here to view Transaction History</Link>
+      </div></>
   );
 }
 

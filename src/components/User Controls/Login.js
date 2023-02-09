@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import './user.scss'
 
 const Login = ({ renderLogIn }) => {
  
@@ -21,24 +21,27 @@ const Login = ({ renderLogIn }) => {
   // };
 
   return (
-    <form onSubmit={renderLogIn}>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-        />
-      </div>
+    <form onSubmit={renderLogIn} className='login-form'>
+      <h2 className="login-header">Login</h2>
+      <div className='login-container'>
+        <div className="username">
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+          />
+        </div>
+        <div className='password'>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+          />
+        </div>
       <button type="submit">Login</button>
+    </div>
     </form>
   );
 };
