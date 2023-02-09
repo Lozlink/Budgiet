@@ -74,3 +74,8 @@ Contributions to this project would be a create opportunity to learn, inspire an
 3. Commit your changes (git commit -m"added a feature")
 4. Push to the branch (git push origin feature/newfeature)
 5. Open a pull request
+
+## Bugs/Difficulties 
+- Don't utilize tech you don't completely understand
+- No error message with incorrect log in 
+- 
