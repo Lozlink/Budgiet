@@ -15,13 +15,13 @@ Express/node.js/postgresql- Budgiet utilizes a persisting database to store it's
 
 
 ### Modules used:
-  React Modules:
+React Modules:
 - Axios
 - React-router-dom
 - Sass
 - Redux (Under Construction)
 
-  Express Modules:
+Express Modules:
 - dotemv
 - express-session
 - pg 
@@ -78,4 +78,4 @@ Contributions to this project would be a create opportunity to learn, inspire an
 ## Bugs/Difficulties 
 - Don't utilize tech you don't completely understand
 - No error message with incorrect log in 
-- 
+- Lack of error messages in general 
