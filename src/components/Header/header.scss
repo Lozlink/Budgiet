@@ -3,6 +3,7 @@
   justify-content: space-evenly;
   outline: none;
   padding: 0.5rem;
+  background-color: rgb(34, 34, 197);
 }
 
 .logo {
@@ -34,26 +35,52 @@
 
 .nav {
   width: 200px;
-  height: 200px;
+  height: 50px;
   margin-left: auto;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   text-align: right;
+  position: relative;
   
+
+  div {
+    cursor: pointer;
+  }
+  
+  ul {
+    display: none;
+    position: absolute;
+    top: 50px;
+    background-color: rgb(240, 240, 76);
+    opacity: 0.7;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    }
+
+  li {
+    width: 200px;
+    padding: 10px;
+    text-align: right;
+    }
+
+  a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+  }
+
 }
-
-
 
 .nav:hover ul {
   display: block;
 }
 
 .Title {
-  color: skyblue
+  color: rgb(240, 240, 76);
 } 
 
 .slogan {
-  color: skyblue;
+  color: rgb(240, 240, 76);
 }
 
