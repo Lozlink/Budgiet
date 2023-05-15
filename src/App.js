@@ -7,7 +7,6 @@ import Balance from './components/account/Balance';
 import { Routes, Route, Link } from 'react-router-dom'
 import Logout from './components/User Controls/Logout';
 import { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import TransactionHistory from './components/account/transactionHistory';
 import HomePage from './components/home/Home';
